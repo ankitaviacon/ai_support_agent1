@@ -42,7 +42,7 @@ agent_executor = create_sql_agent(
 
 
 def classify_intent(user_message: str) -> str:
-    """Classify user intent into Greeting, DatabaseQuery, or APIQuery (future-proof)."""
+    """Classify user intent into Greeting, DatabaseQuery, or APIQuery """
     classification_prompt = f"""
     You are an intent classifier for a chatbot.
 
@@ -91,7 +91,7 @@ def front_agent(user_message: str) -> str:
         return answer_user_query(user_message)
 
     elif intent == "APIQuery":
-        return "This request looks like it needs an external API. (Future feature 🚀)"
+        return "This request looks like it needs an external API."
 
     else:
         return "Sorry, I couldn’t understand your request."
@@ -99,7 +99,7 @@ def front_agent(user_message: str) -> str:
 
 
 if __name__ == "__main__":
-    print("AI Support Agent (LangChain Router + SQL)\n")
+    print("AI Support Agent \n")
     while True:
         user_input = input("User: ")
         if user_input.lower() in ["exit", "quit"]:
